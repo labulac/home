@@ -1,9 +1,7 @@
 package api
 
 import (
-	"fmt"
 	"net/http"
-	"strings"
 	"test/handler"
 
 	"github.com/spf13/viper"
@@ -24,16 +22,17 @@ func registerRouter(r *gin.RouterGroup) {
 // init gin app
 func init() {
 	app = gin.New()
-	viper.Set("movecar.tel", "18051735535")
+	viper.Set("movecar.tel", "13770250798")
 
 	// Handling routing errors
 	app.NoRoute(func(c *gin.Context) {
-		sb := &strings.Builder{}
-		sb.WriteString("routing err: no route, try this:\n")
-		for _, v := range app.Routes() {
-			sb.WriteString(fmt.Sprintf("%s %s\n", v.Method, v.Path))
-		}
-		c.String(http.StatusBadRequest, sb.String())
+		// sb := &strings.Builder{}
+		// sb.WriteString("routing err: no route, try this:\n")
+		// for _, v := range app.Routes() {
+		// 	sb.WriteString(fmt.Sprintf("%s %s\n", v.Method, v.Path))
+		// }
+		// c.String(http.StatusBadRequest, sb.String())
+		c.String(http.StatusBadRequest, "routing err: no route")
 	})
 	// must /api/xxx
 	r := app.Group("/api")
