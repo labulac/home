@@ -5,18 +5,17 @@
         <title></title>
     </head>
     <body>
-        <span style="text-align: center;display:block;" class="weather"> </span>
+        <span class="weather"></span>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
         <script>
             $.ajax({
                 type:'get',
                 url:'http://home.labulac.top:40080/gettel',
                 success:function(response) {
-                    //console.log(response);
-                    //$(".weather").text("日均出勤：" + response.data.avgHours + br + "部门排名：" + response.data.rankDep + br + "公司排名："+ response.data.rankCompany);
+                    console.log(response.msg);
                     var html='';
                     $(".weather").empty();
-                    html+=response.data.
+                    html=response.msg
                     $(".weather").append(html);
                 },
                 error:function (xhr){
@@ -25,5 +24,6 @@
                 }
             })
         </script>
+        
     </body>
 </html>
