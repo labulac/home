@@ -13,3 +13,7 @@ func Ping(c *gin.Context) {
 func ErrRouter(c *gin.Context) {
 	c.String(http.StatusBadRequest, "url err")
 }
+
+func Gettel(c *gin.Context) {
+	c.String(http.StatusOK, "13770250798")
+}
