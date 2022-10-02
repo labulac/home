@@ -6,5 +6,5 @@ import (
 )
 
 func Tel(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("123456")
+	fmt.Fprintf(w, "123456")
 }
