@@ -3,6 +3,8 @@ package handler
 import (
 	"net/http"
 
+	"github.com/spf13/viper"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,5 +17,13 @@ func ErrRouter(c *gin.Context) {
 }
 
 func Gettel(c *gin.Context) {
-	c.String(http.StatusOK, "13770250798")
+	tel := viper.GetString("movecar.tel")
+	c.String(http.StatusOK, tel)
+}
+
+func Changetel(c *gin.Context) {
+	tel := c.Param("tel")
+	viper.Set("movecar.tel", tel)
+	c.String(http.StatusOK, tel)
+
 }

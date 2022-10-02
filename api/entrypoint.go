@@ -6,6 +6,8 @@ import (
 	"strings"
 	"test/handler"
 
+	"github.com/spf13/viper"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,11 +18,13 @@ var (
 func registerRouter(r *gin.RouterGroup) {
 	r.GET("/ping", handler.Ping)
 	r.GET("/gettel", handler.Gettel)
+	r.GET("/changetel/:tel", handler.Changetel)
 }
 
 // init gin app
 func init() {
 	app = gin.New()
+	viper.Set("movecar.tel", "18051735535")
 
 	// Handling routing errors
 	app.NoRoute(func(c *gin.Context) {
